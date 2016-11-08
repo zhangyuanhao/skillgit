@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+	
+	<script>
+		function sum (){
+				var q=0;
+				for (var i =0; i<arguments.length ; i++) {
+
+					q+=arguments[i];
+				}
+  					return q
+				
+		}
+           alert(sum(1,2,3,4,5,6,7,8,9));
+
+	</script>
+	 @defining( s"$formname.$name" ) 
+{  fullname =>
+  <div class="form-group"ng-class="(@{formname}.$submitted || @{fullname}.$touched) && @{fullname}.$invalid ? 'has-error has-feedback' : ''">
+      <label @if(inline){class="sr-only"} for="@name">@label</label>
+    
+      <input type="@inputType" id="@name" name="@name" class="form-control" @toHtmlArgs(htmlArgs)>
+  
+    <span ng-show="(@{formname}.$submitted || @{fullname}.$touched) && @{fullname}.$error.required"
+            class="help-block ng-cloak">
+            @MSG("error.required")
+            </span>
+
+    <span ng-show="@{fullname}.$error.minlength" class="help-block ng-cloak">
+      @MSG("error.minLength", value)
+    </span>
+    
+    <span ng-show="(@{formname}.$submitted || @{fullname}.$touched) && @{fullname}.$error.number"
+      class="help-block ng-cloak">
+      @MSG("error.number")
+    </span>
+  </div>
+}
+	
+</body>
+</html>
